@@ -1,0 +1,154 @@
+body {
+  padding: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.btn .btn-primary {
+  margin: 50px;
+}
+
+.topDiv {
+  display: flex;
+  justify-content: left;
+}
+
+/* dial */
+.wrapperCount .wrapperSet {
+    
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.camAndDialGrid {
+  display: grid;
+  grid-template-rows: 300px 1fr;
+  width: 700px;
+  height: 600px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+.dialSpot {
+  width: auto;
+  height: auto;
+
+}
+
+.currentSpot {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* voice switch */
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* ---------- SWITCH ---------- */
+
+.switchVoice {
+height: 64px;
+left: 50%;
+margin: auto;
+/* position: absolute; */
+top: 50%;
+width: 160px;  
+}
+
+.switch {
+background: #fff;
+border-radius: 32px;
+display: block;
+height: 64px;
+position: relative;
+width: 160px;
+}
+
+.switch label {
+color: #fff;
+font-size: 48px;
+font-weight: 300;
+line-height: 64px;
+text-transform: uppercase;
+-webkit-transition: color .2s ease;
+-moz-transition: color .2s ease;
+-ms-transition: color .2s ease;
+-o-transition: color .2s ease;
+transition: color .2s ease;
+width: 100px;
+}
+
+.switch label:nth-of-type(1) {
+left: -75%;
+position: absolute;
+text-align: right;
+}
+
+.switch label:nth-of-type(2) {
+position: absolute;
+  right: -75%;
+text-align: left;
+}
+
+.switch input {
+height: 64px;
+left: 0;
+opacity: 0;
+position: absolute;
+top: 0;
+width: 160px;
+z-index: 2;
+}
+
+.switch input:checked~label:nth-of-type(1) { color: #fff; }
+.switch input:checked~label:nth-of-type(2) { color: #40739e; }
+
+.switch input~:checked~label:nth-of-type(1) { color: #8c7ae6; }
+.switch input~:checked~label:nth-of-type(2) { color: #fff; }
+
+.switch input:checked~.toggle {
+left: 4px;
+}
+
+.switch input~:checked~.toggle {
+left: 100px;
+}
+
+.switch input:checked {
+z-index: 0;
+}
+
+.toggle {
+background: #79cce1;
+border-radius: 50%;
+height: 56px;
+left: 0;
+position: absolute;
+top: 4px;
+-webkit-transition: left .2s ease;
+-moz-transition: left .2s ease;
+-ms-transition: left .2s ease;
+-o-transition: left .2s ease;
+transition: left .2s ease;
+width: 56px;
+z-index: 1;
+}

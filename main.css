@@ -1,0 +1,47 @@
+
+.time {
+    width: 130px;
+    display: grid;
+    height: 48px;
+    margin-left: 10px;
+}
+
+.face {
+    width: 225px;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.element_list {
+    display: grid;
+    width: 980px;
+    grid-template-columns: 400px 1fr;
+    margin: 0 auto;
+    position: relative;
+}
+
+.squat ,
+.pushUp {
+    display: grid;
+    width: 150px;
+    height: 180px;
+    cursor: pointer;
+}
+
+.element_list>div>img {
+    width: 150px;
+    height: 150px;    
+    margin-bottom: 5px;
+
+}
+
+.element_list>div>span {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+}
