@@ -77,7 +77,7 @@ async function predict() {
             }
         }
         state = "up";
-    } else if (prediction[1].probability.toFixed(2) == 0.90) {
+    } else if (prediction[1].probability.toFixed(2) == 1.00) {
         state = "push";
     }
 
