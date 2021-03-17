@@ -59,7 +59,7 @@ async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
-    if (prediction[0].probability.toFixed(2) == 1.00) {
+    if (prediction[0].probability.toFixed(2) == 0.90) {
         if (state == "push") {
             count += 1;
             selectedVoice(count);
@@ -77,7 +77,7 @@ async function predict() {
             }
         }
         state = "up";
-    } else if (prediction[1].probability.toFixed(2) == 1.00) {
+    } else if (prediction[1].probability.toFixed(2) == 0.90) {
         state = "push";
     }
 
