@@ -132,13 +132,17 @@ function deleteLS() {
 // hide settingTarget and show webcam and dial
 
 function hideSettingTarget() {
-    $('.settingTarget').hide();
-    $('.camAndDial').show();
+    const cam = document.getElementById("camAndDial_tog");
+    const set = document.getElementById("settingTarget_tog");
+    cam.style.display = "block";
+    set.style.display = "none";
 }
 
 function hideCamAndDial() {
-    $('.camAndDial').hide();
-    $('.settingTarget').show();
+    const cam = document.getElementById("camAndDial_tog");
+    const set = document.getElementById("settingTarget_tog");
+    cam.style.display = "none";
+    set.style.display = "block";
 }
 
 
@@ -383,7 +387,7 @@ function soundWoman(i) {
     } else {
         let audio = new Audio('sound/bright_woman/bright_W_' + i % 10 + '.mp3');
         audio.play();
-    }    
+    }
 }
 
 function soundSetEnd() {
@@ -394,14 +398,14 @@ function soundSetEnd() {
 function checkedSwitch() {
     const voice = 'voice';
     const checkedMan = document.getElementById('switch-woman').checked;
-    const checkedWoman = document.getElementById('switch-man').checked;   
-    if(checkedMan == true){
+    const checkedWoman = document.getElementById('switch-man').checked;
+    if (checkedMan == true) {
         localStorage.setItem(voice, 'm');
         console.log("남");
-    } else if(checkedWoman == true) {
+    } else if (checkedWoman == true) {
         localStorage.setItem(voice, 'w');
         console.log("여");
-    }       
+    }
 }
 
 function selectedVoice(k) {
@@ -411,7 +415,7 @@ function selectedVoice(k) {
         soundMan(k);
     } else if (gen == "w") {
         soundWoman(k);
-    }  
+    }
 }
 
 

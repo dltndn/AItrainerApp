@@ -7,3 +7,4 @@ function pushUpPage() {
 function squatPage() {
     localStorage.setItem(pageID, 1);
 }
+

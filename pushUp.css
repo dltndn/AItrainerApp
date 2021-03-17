@@ -152,3 +152,13 @@ transition: left .2s ease;
 width: 56px;
 z-index: 1;
 }
+
+/*toggle setting target and camdial*/
+#camAndDial_tog {
+  display: none;
+}
+
+h1 {
+	font-size: 1.6em;
+	font-weight: 300;
+  }
