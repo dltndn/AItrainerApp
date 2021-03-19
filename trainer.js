@@ -5,10 +5,6 @@
 // the link to your model provided by Teachable Machine export panel
 let model, webcam, ctx, labelContainer, maxPredictions;
 
-let LSCount = localStorage.getItem("target");
-LSCount = Number(LSCount);
-let LSSet = localStorage.getItem("set");
-LSSet = Number(LSSet);
 const innerCurrentCount = document.getElementById("currentCount");
 const innerCurrentSet = document.getElementById("currentSet");
 
@@ -329,11 +325,12 @@ Dial.prototype.setValue = function (value) {
 // Usage
 //
 
+var containersT =[];
 // count
-var containers = document.getElementsByClassName("dialCount");
-var dial = new Dial(containers[0]);
+containersT.push(document.getElementsByClassName("dialCount"));
+var dial = new Dial(containersT[0][0]);
 function refreshCount(c) {
-    let targetCount = LSCount;
+    let targetCount = localStorage.getItem("target");;
     let tmCountIndex = c; //current count
     let countIndex = tmCountIndex / targetCount;
     countIndex = countIndex * 100;
@@ -343,15 +340,27 @@ function refreshCount(c) {
 
 // set
 var containers = document.getElementsByClassName("dialSet");
-var dial = new Dial(containers[0]);
+var dialNd = new Dial(containers[0]);
 function refreshSet(s) {
-    let targetSet = LSSet;
+    let targetSet = localStorage.getItem("set");
     let tmSetIndex = s; //current set
     let setIndex = tmSetIndex / targetSet;
     setIndex = setIndex * 100;
-    dial.value = Math.round(setIndex);
-    dial.animateStart();
+    dialNd.value = Math.round(setIndex);
+    dialNd.animateStart();
 }
+
+// var containers = document.getElementsByClassName("dialSet");
+// var dial = new Dial(containers[0]);
+// function refreshSet(s) {
+//     let targetSet = LSSet;
+//     let tmSetIndex = s; //current set
+//     let setIndex = tmSetIndex / targetSet;
+//     setIndex = setIndex * 100;
+//     dial.value = Math.round(setIndex);
+//     dial.animateStart();
+// }
+
 
 function refreshSetFirst(s) {
     state = "up"
@@ -362,8 +371,8 @@ function refreshSetFirst(s) {
     targetSet = Number(targetSet);
     let setIndex = tmSetIndex / targetSet;
     setIndex = setIndex * 100;
-    dial.value = Math.round(setIndex);
-    dial.animateStart();
+    dialNd.value = Math.round(setIndex);
+    dialNd.animateStart();
 }
 
 function alertSetInitialization() {
@@ -417,6 +426,7 @@ function selectedVoice(k) {
         soundWoman(k);
     }
 }
+
 
 
 
