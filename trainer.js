@@ -55,6 +55,7 @@ async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
+    const LSCount = localStorage.getItem("target");
     if (prediction[0].probability.toFixed(2) == 1.00) {
         if (state == "push") {
             count += 1;
@@ -325,12 +326,11 @@ Dial.prototype.setValue = function (value) {
 // Usage
 //
 
-var containersT =[];
 // count
-containersT.push(document.getElementsByClassName("dialCount"));
-var dial = new Dial(containersT[0][0]);
+var containersT = document.getElementsByClassName("dialCount");
+var dial = new Dial(containersT[0]);
 function refreshCount(c) {
-    let targetCount = localStorage.getItem("target");;
+    let targetCount = localStorage.getItem("target");
     let tmCountIndex = c; //current count
     let countIndex = tmCountIndex / targetCount;
     countIndex = countIndex * 100;
@@ -410,10 +410,8 @@ function checkedSwitch() {
     const checkedWoman = document.getElementById('switch-man').checked;
     if (checkedMan == true) {
         localStorage.setItem(voice, 'm');
-        console.log("남");
     } else if (checkedWoman == true) {
         localStorage.setItem(voice, 'w');
-        console.log("여");
     }
 }
 
